@@ -4,3 +4,9 @@ export interface blogCard {
     currentSlug: string,
     titleImage: any
 }
+export interface fullBlogCard {
+    title: string,
+    smallDescription: string,
+    currentSlug: string,
+    titleImage: any
+}
