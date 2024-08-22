@@ -1,13 +1,32 @@
-import Navbar from "@/app/components/Navbar";
+import {client} from "@/app/lib/sanity";
+import {blogCard} from "@/app/lib/interface";
+
+const getData = async () =>{
+    const query = `
+        *[_type == 'blog'] | order(_createdAt desc){
+            title,
+            smallDescription,
+            "currentSlug": slug.current,
+            titleImage
+        }
+    `;
+
+    return await client.fetch(query);
+};
 
 
-export default function Home() {
+const Home = async () => {
+
+    const data: blogCard[] = await getData();
+
+
   return (
     <>
       <div>
-        <Navbar />
         <h1>hello</h1>
       </div>
     </>
   );
 }
+
+export default Home;
