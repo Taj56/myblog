@@ -2,6 +2,7 @@ import {client, urlFor} from "@/app/lib/sanity";
 import {fullBlogCard} from "@/app/lib/interface";
 import Image from "next/image";
 import {PortableText} from "@portabletext/react";
+import Head from "next/head";
 
 const getData = async (slug: string) =>{
     const query = `
@@ -23,6 +24,7 @@ const BlogArticle = async ({params} : {params: {slug: string}}) =>{
     const data: fullBlogCard = await getData(params.slug)
     return (
         <>
+
             <div className={"mt-8"}>
                 <h1>
                     <span
@@ -40,7 +42,7 @@ const BlogArticle = async ({params} : {params: {slug: string}}) =>{
                        className={"rounded-lg mt-8 border mx-auto"}
                 />
                 <div
-                    className={"mt-16 prose prose-blue prose-lg dark:prose-invert prose-headings:underline"}>
+                    className={"mt-16 prose prose-blue prose-lg dark:prose-invert"}>
                     <PortableText value={data.content} />
                 </div>
             </div>
