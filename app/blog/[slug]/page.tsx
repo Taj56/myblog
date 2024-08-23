@@ -16,6 +16,8 @@ const getData = async (slug: string) =>{
     return await client.fetch(query);
 }
 
+export const revalidate = 30 // revalidate at most 30sec
+
 
 const BlogArticle = async ({params} : {params: {slug: string}}) =>{
     const data: fullBlogCard = await getData(params.slug)
