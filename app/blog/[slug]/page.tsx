@@ -37,7 +37,8 @@ const BlogArticle = async ({params} : {params: {slug: string}}) =>{
                        priority
                        className={"rounded-lg mt-8 border mx-auto"}
                 />
-                <div className={"mt-16"}>
+                <div
+                    className={"mt-16 prose prose-blue prose-lg dark:prose-invert prose-headings:underline"}>
                     <PortableText value={data.content} />
                 </div>
             </div>
